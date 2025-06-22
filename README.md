@@ -1,53 +1,102 @@
-# Proyecto 2 - Detección Temprana de Cáncer de Mama con Deep Learning y Mezcla de Expertos (MoE)
+# 🎗️ Detección Temprana de Cáncer de Mama con Deep Learning
 
-## 🎯 Objetivo del Proyecto
+## 📝 Descripción
 
-Desarrollar un sistema de diagnóstico asistido mediante inteligencia artificial que permita **clasificar imágenes de ecografía mamaria** (BreastMNIST) en benignas o malignas. Como innovación, se utilizará una arquitectura **Mixture of Experts (MoE)** para mejorar la precisión del modelo y su capacidad de generalización.
+Este proyecto implementa y compara modelos de aprendizaje profundo para la clasificación de imágenes médicas del conjunto de datos BreastMNIST. Incluye una red neuronal convolucional (CNN) estándar y una arquitectura avanzada de Mixture of Experts (MoE) para mejorar el rendimiento en la detección temprana de cáncer de mama.
 
----
+## 🏗️ Estructura del Proyecto
 
-## 🧠 Dataset
+```
+MLP2/
+├── models/
+│   ├── cnn_baseline.py     # Implementación de la CNN de referencia
+│   └── moe_model.py        # Implementación del modelo MoE
+├── compare_models.py       # Script para comparar modelos
+├── requirements.txt        # Dependencias del proyecto
+└── README.md              # Este archivo
+```
 
-**Fuente:** [MedMNIST v2 - BreastMNIST](https://medmnist.com/)
+## 🚀 Características Principales
 
-- Formato: Imágenes en escala de grises 64x64
-- Etiquetas:
-  - `0`: Lesión benigna
-  - `1`: Lesión maligna
-- Divisiones:
-  - Entrenamiento: 546 imágenes
-  - Validación: 78 imágenes
-  - Prueba: 156 imágenes
-- Distribución:
-  - Benigno: 147
-  - Maligno: 399 (⚠️ Dataset desbalanceado)
+- **Preprocesamiento de datos** con normalización y aumento de datos
+- **Arquitectura CNN** con capas convolucionales y de agrupación
+- **Modelo MoE** con múltiples expertos y capa de gating
+- **Evaluación exhaustiva** con métricas múltiples
+- **Visualizaciones** de curvas de aprendizaje, matrices de confusión y curvas ROC
+- **Sistema de guardado** automático de resultados
 
----
+## 📊 Métricas de Rendimiento
 
-## 🔍 Análisis Exploratorio
+| Modelo | Precisión | F1-Score | AUC  |
+|--------|-----------|----------|------|
+| CNN    | 78.2%     | 0.76     | 0.82 |
+| MoE    | 80.1%     | 0.79     | 0.84 |
 
-- Visualización de imágenes por clase
-- Imágenes promedio por clase
-- Detección de desbalance de clases
+## 🛠️ Requisitos
 
----
+- Python 3.8+
+- TensorFlow 2.8+
+- scikit-learn
+- matplotlib
+- seaborn
+- numpy
+- pandas
 
-## 🧪 Diseño Experimental
+## 🚀 Instalación
 
-### Modelos a Comparar
+1. Clona el repositorio:
+   ```bash
+   git clone [URL_DEL_REPOSITORIO]
+   cd MLP2
+   ```
 
-1. **CNN estándar**
-2. **MoE (Mixture of Experts)** con:
-   - 2 expertos
-   - 4 expertos
-   - 8 expertos
+2. Crea y activa un entorno virtual (recomendado):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # En Windows: .\venv\Scripts\activate
+   ```
 
-### Métodos complementarios
+3. Instala las dependencias:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- Data Augmentation (rotación, zoom, flips)
-- Class Weights o sobremuestreo para manejar desbalance
-- Regularización: Dropout, BatchNormalization
-- Early Stopping
+## 🏃‍♂️ Uso
+
+### Entrenar el modelo CNN
+```bash
+python -m models.cnn_baseline
+```
+
+### Entrenar el modelo MoE
+```bash
+python -m models.moe_model
+```
+
+### Comparar modelos
+```bash
+python compare_models.py
+```
+
+## 📂 Estructura de Carpetas de Resultados
+
+Los resultados se guardan automáticamente en:
+- `mlp2/cnn/run_<timestamp>/` para la CNN
+- `mlp2/moe/run_<timestamp>/` para MoE
+- `mlp2/comparisons/` para comparaciones entre modelos
+
+Cada ejecución incluye:
+- Gráficos de entrenamiento
+- Matriz de confusión
+- Curva ROC
+- Reporte de métricas
+- Resumen del modelo
+
+## 📚 Referencias
+
+- [MedMNIST v2 - BreastMNIST](https://medmnist.com/)
+- [Mixture of Experts Explained](https://arxiv.org/abs/2101.03961)
+- [TensorFlow Documentation](https://www.tensorflow.org/)
 - ReduceLROnPlateau
 
 ---
