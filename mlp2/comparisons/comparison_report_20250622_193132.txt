@@ -1,0 +1,16 @@
+=== Comparación de Modelos ===
+
+Modelo: CNN
+Ruta: Z:\DEV\Respos\Universidad\ML\MLP2\run_20250622_191852
+Métricas:
+  - AUC: 0.8003
+  - F1-Score: 0.8571
+
+Modelo: MOE
+Ruta: Z:\DEV\Respos\Universidad\ML\MLP2\moe\run_20250622_192836
+Métricas:
+  - AUC: 0.8304
+  - F1-Score: 0.8870
+
+
+Mejor modelo según AUC: MOE (AUC: 0.8304)

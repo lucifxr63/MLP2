@@ -42,18 +42,19 @@ def load_metrics(model_dir):
 
 def load_latest_results():
     """Carga los resultados más recientes de CNN y MOE"""
-    base_dir = os.path.abspath(os.path.join('mlp2'))
+    # Directorio base del proyecto
+    base_dir = os.path.abspath('.')
     results = {}
     
-    # Buscar resultados más recientes de CNN
-    cnn_dirs = sorted(glob(os.path.join(base_dir, 'cnn', 'run_*')), reverse=True)
+    # Buscar resultados más recientes de CNN (en la raíz)
+    cnn_dirs = sorted(glob(os.path.join(base_dir, 'run_*')), reverse=True)
     if cnn_dirs:
         results['cnn'] = {
             'path': cnn_dirs[0],
             'metrics': load_metrics(cnn_dirs[0])
         }
     
-    # Buscar resultados más recientes de MOE
+    # Buscar resultados más recientes de MOE (en carpeta moe/)
     moe_dirs = sorted(glob(os.path.join(base_dir, 'moe', 'run_*')), reverse=True)
     if moe_dirs:
         results['moe'] = {
