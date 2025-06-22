@@ -1,0 +1,17 @@
+Classification Report:
+              precision    recall  f1-score   support
+
+      Benign       0.56      0.64      0.60        42
+   Malignant       0.86      0.82      0.84       114
+
+    accuracy                           0.77       156
+   macro avg       0.71      0.73      0.72       156
+weighted avg       0.78      0.77      0.77       156
+
+
+Confusion Matrix:
+[[27 15]
+ [21 93]]
+
+ROC AUC Score: 0.7922
+F1 Score: 0.8378
