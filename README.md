@@ -75,6 +75,7 @@ Desarrollar un sistema de diagnóstico asistido mediante inteligencia artificial
 
 - `notebook.ipynb` con el desarrollo completo
 - Código para la arquitectura MoE
+- Código para la **CNN baseline** (`models/cnn_baseline.py`)
 - Comparación de rendimiento entre CNN y MoE
 - Visualizaciones y análisis
 - Informe final (PDF + fuente)
@@ -90,6 +91,7 @@ Desarrollar un sistema de diagnóstico asistido mediante inteligencia artificial
 │ └── experimento_MoE_vs_CNN.ipynb
 ├── models/
 │ └── moe_model.py
+│ └── cnn_baseline.py
 ├── utils/
 │ └── dataloader.py
 ├── README.md
